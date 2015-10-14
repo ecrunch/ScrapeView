@@ -1,0 +1,86 @@
+<html ng-app="theBlock">
+	<head>
+		<meta charset="UTF-8">
+		<title>theBlock</title>	
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+
+		<!--JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		
+		<!--Masonry -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.min.js"></script>
+		<script src"https://cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.1.0/jquery.infinitescroll.js"></script>
+
+		<!--Angular-->
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.1/moment.min.js"></script>
+
+		<!-- UI -->
+		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+
+		<!-- CSS -->
+
+		<link rel="stylesheet" type="text/css" href="css/style.css"> 
+		
+		<!-- App -->
+		<script src="/js/AngularApp.js"></script>
+		<script src="/js/routing.js"></script>
+		
+		<!-- Controllers -->
+		<script src="/js/Controllers/MainCtrl.js"></script>
+		<script src="/js/Controllers/InnerCtrl.js"></script>
+
+		<!-- Services -->
+
+		<script src="/js/Services/mainService.js"></script>
+
+		<!-- Routing -->
+
+	</head>
+	<body ng-controller="MainCtrl">
+		<header id="cssmenu">
+			<ul>
+				<li><a class="toggleMasonry filter" ng-click="(brandFilter = {brand: ''}); (apparelFilter = {shopType: ''});" href="/#/testWall">theBlock</a></li>
+				<li class="active has-sub">
+					<a href="/#/">Apparel</a>
+					<ul>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(apparelFilter = {shopType: 'shirt'});">Shirts</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(apparelFilter = {shopType: 'sweater'});">Sweaters</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(apparelFilter = {shopType: 'pant'});">Pants</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(apparelFilter = {shopType: 'jacket'});">Jackets</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(apparelFilter = {shopType: ''});">Undo</a></li>
+
+
+						<li><a class="filter" href="" ng-click="myFilter = null">Taco</a></li>
+					</ul>
+
+				</li>
+				<li class="active has-sub">
+					<a href="/#/">Brand</a>
+					<ul>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Taco'});">Taco</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Blueberry'});">Blueberry</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Burrito'});">Burrito</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Kedzie'});">Kedzie</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Sweet'});">Sweet</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Banana'});">Banana</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Apple'});">Apple</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Chia'});">Chia</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Block'});">Block</a></li>
+						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: ''});">Undo</a></li>
+					</ul>
+
+				</li>	
+				<li><a href="/#/" ng-click="testBuildInterval()">FakeDataCreator</a></li>
+			</ul>		
+		</header>	
+			<div ui-view>
+			</div>
+		<script type="text/ng-template" id="/home.html"></script>
+		<script type="text/ng-template" id="/admin.html"></script>
+		<script type="text/ng-template" id="/testWall.html"></script>
+	</body>
