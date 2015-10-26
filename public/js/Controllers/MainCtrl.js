@@ -1,10 +1,68 @@
 var app = angular.module('MainCtrl', []);
 
+var global_items;
+
 app.controller('MainCtrl', [
-'$scope', '$stateParams','$state','$interval', 'Main',
-function($scope, $stateParams, $state, $interval, Main){
-	console.log("in ctrl");
+'$scope', '$stateParams','$state','$interval', '$timeout', '$element', 'Main',
+function($scope, $stateParams, $state, $interval, $timeout, $element, Main){
+
 	$scope.items = Main.items;
+
+	$scope.selected_items = $scope.items;
+
+	$scope.currentView = "ALL";
+
+	$scope.filterItems = function(name) {
+		if($scope.currentView == "ALL") {
+			$scope.selected_items = '';	
+			$scope.selected = [];
+			$scope.currentView = "FILTERED";
+			console.log($scope.currentView)
+		} else {
+			console.log("FILTERED")
+		}
+
+		$scope.items.forEach(function(item) {
+			if(item.brand == name){
+				$scope.selected.push(item);
+			}
+		});
+
+	};
+
+	$scope.updateFilter = function() {
+		$scope.selected_items = $scope.selected;
+	}
+
+	// $scope.$watch('selected_items', function(newVal, oldVal){
+	// 	if (newVal != oldVal) {
+ //        	$timeout(function () {
+	// 		    $container.imagesLoaded( function(){
+	// 		        $container.masonry({
+	// 		            // options
+	// 		            itemSelector : '.item',
+	// 		            columnWidth : 320,
+	// 		            isFitWidth: true,
+	// 		          });
+
+	// 		    $container.masonry('reloadItems');
+
+	// 		    $container.masonry('layout');
+	// 			})
+ //        	}, 300);
+ //    	}
+	// }, true);	
+
+
+	$scope.toggleFilter = function(){
+		$scope.selected_items = $scope.selected;
+		console.log($scope.selected_items)
+	}
+
+	$scope.resetFilter = function(){
+		$scope.selected_items = [];
+		// $scope.selected_items = $scope.items;
+	};
 
 	var jackets = ["/images/jacket1.jpg",
 				 "/images/jacket2.jpg",
@@ -63,17 +121,19 @@ function($scope, $stateParams, $state, $interval, Main){
 		
 		if ($scope.type === "jacket") {
 			$scope.images.push(jackets[Math.floor(Math.random()*jackets.length)]);
+			$scope.images.push(shirts[Math.floor(Math.random()*shirts.length)]);
 		} else if ($scope.type === "shirt") {
 			$scope.images.push(shirts[Math.floor(Math.random()*shirts.length)]);
+			$scope.images.push(pants[Math.floor(Math.random()*pants.length)]);
 		} else if ($scope.type === "pant") {
 			$scope.images.push(pants[Math.floor(Math.random()*pants.length)]);
+			$scope.images.push(jackets[Math.floor(Math.random()*jackets.length)]);
 		} else {
 			$scope.images.push(sweaters[Math.floor(Math.random()*sweaters.length)]);
+			$scope.images.push(jackets[Math.floor(Math.random()*jackets.length)]);
 		}
 		
-		$scope.images.push(sweaters[Math.floor(Math.random()*sweaters.length)]);
-		$scope.images.push(pants[Math.floor(Math.random()*pants.length)]);
-
+	
 		Main.create({
 			name: ($scope.name + " " + $scope.type),
 			shopType:$scope.type,

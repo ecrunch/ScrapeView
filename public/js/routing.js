@@ -9,7 +9,6 @@ function($stateProvider, $urlRouterProvider) {
     .state('TestWall', {
         url: '/testWall',
         templateUrl: 'temps/testWall.html',
-        controller: 'MainCtrl',
         resolve: {
                 itemPromise: ['Main', function(Main){
                         return Main.getAll();

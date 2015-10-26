@@ -62,19 +62,19 @@
 				<li class="active has-sub">
 					<a href="/#/">Brand</a>
 					<ul>
-						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Taco'});">Taco</a></li>
-						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Blueberry'});">Blueberry</a></li>
-						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Burrito'});">Burrito</a></li>
-						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Kedzie'});">Kedzie</a></li>
-						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Sweet'});">Sweet</a></li>
-						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Banana'});">Banana</a></li>
-						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Apple'});">Apple</a></li>
-						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Chia'});">Chia</a></li>
-						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: 'Block'});">Block</a></li>
-						<li><a class="toggleMasonry filter" href="/#/testWall" ng-click="(brandFilter = {brand: ''});">Undo</a></li>
+						<li><a class="toggleFilterMasonry" href="/#/testWall" ng-click="filterItems('Taco');">Taco</a></li>
+						<li><a class="toggleFilterMasonry" href="/#/testWall" ng-click="filterItems('Blueberry');">Blueberry</a></li>
+						<li><a class="toggleFilterMasonry" href="/#/testWall" ng-click="filterItems('Burrito');">Burrito</a></li>
+						<li><a class="toggleFilterMasonry" href="/#/testWall" ng-click="filterItems('Kedzie');">Kedzie</a></li>
+						<li><a class="toggleFilterMasonry" href="/#/testWall" ng-click="filterItems('Sweet');">Sweet</a></li>
+						<li><a class="toggleFilterMasonry" href="/#/testWall" ng-click="filterItems('Banana');">Banana</a></li>
+						<li><a class="toggleFilterMasonry" href="/#/testWall" ng-click="filterItems('Apple');">Apple</a></li>
+						<li><a class="toggleFilterMasonry" href="/#/testWall" ng-click="filterItems('Chia');">Chia</a></li>
+						<li><a class="toggleFilterMasonry" href="/#/testWall" ng-click="filterItems('Block');">Block</a></li>
+						<li><a class="toggleFilterMasonry" href="/#/testWall" ng-click="resetFilter()">Undo</a></li>
 					</ul>
 
-				</li>	
+				</li>		
 				<li><a href="/#/" ng-click="testBuildInterval()">FakeDataCreator</a></li>
 			</ul>		
 		</header>	

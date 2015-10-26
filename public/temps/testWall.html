@@ -38,6 +38,7 @@
 
     // Reset Masonry
     $('.toggleMasonry').on('click', function(){
+
       $container.masonry('destroy').delay(200);
 
       $container.masonry({
@@ -46,6 +47,59 @@
           columnWidth : 320,
           isFitWidth: true,
         });
+
+
+    });
+
+
+
+
+    $('.toggleFilterMasonry').on('click', function(){
+
+
+
+      $container.masonry('destroy').delay(200);
+
+      angular.element('#filterCall').scope().updateFilter();
+      angular.element('#filterCall').scope().$apply();
+
+
+      $container.imagesLoaded( function(){
+            $container.masonry({
+            // options
+            itemSelector : '.item',
+            columnWidth : 320,
+            isFitWidth: true,
+          });
+
+        $container.masonry('reloadItems');
+
+        
+        $container.masonry('layout');
+
+        // Toggle Bigger Card
+        $container.on( 'click', '.item', function() {
+        // change size of item via class
+          $( this ).removeClass('item');
+          $( this ).addClass('item--gigante');
+
+
+        // trigger layout
+
+          $container.masonry();
+
+        });
+
+        // Close Bigger Card
+        $container.on('click', '.close', function(){
+          
+          $( this ).parent('.item--gigante').addClass('item');
+          $( this ).parent('.item--gigante.item').removeClass('item--gigante');
+
+          $container.masonry();
+
+        });
+      });
 
     });
 
@@ -85,27 +139,26 @@
            }
            }).fadeIn(800);
    });
-
+  
 </script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<div id = "container">
-
+<div id = "container" ng-controller="MainCtrl">
 	
-  <div ng-repeat="item in items | filter: brandFilter | filter: apparelFilter">
+  <div ng-repeat="item in selected_items" id = "filterCall">
     <!-- Card -->
-		<div ng-controller="InnerCtrl"class="item" id='item'>
+		<div ng-controller="InnerCtrl" class="item" id='item'>
       <!-- Close Button -->
       <button class="close">Close</button>
       <!-- Main Image -->
-      <img id="MainImage" ng-src="{{selected}}" />
+      <img id="MainImage" ng-src="{{mainImage}}" />
       <!-- Side Description -->      
 		  <p class="imgName">{{item.name}}</p>
 		  <p class="imgDescription">{{item.description}}</p>
       <!-- Bottom Slider -->
       <div id="slider">
         <ul class="slides">
-          <li ng-repeat="images in item.images">
-            <a href="" ng-click="testClicker(images,$index)">
+          <li ng-repeat="images in item.images" id='innerFilterCall'>
+            <a href="" ng-click="changeImage(images,$index)">
               <img ng-src="{{images}}" />
             </a>
           </li>
