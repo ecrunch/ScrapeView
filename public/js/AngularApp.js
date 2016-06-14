@@ -1,10 +1,9 @@
 var app = angular.module('theBlock',
 	[
 		'MainCtrl',
-		'InnerCtrl',
 		'mainService',
+		'placeService',
 		'ui.router',
-
 		'theBlockRouting'
 
 	]

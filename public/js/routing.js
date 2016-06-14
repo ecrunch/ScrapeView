@@ -10,11 +10,26 @@ function($stateProvider, $urlRouterProvider) {
         url: '/testWall',
         templateUrl: 'temps/testWall.html',
         resolve: {
-                itemPromise: ['Main', function(Main){
-                        return Main.getAll();
+                itemPromise: ['Tweets', function(Tweets){
+                        return Tweets.getAll();
                 }]
             }
+    })
+
+    .state('TestUrl', {
+        url: '/testInput',
+        templateUrl: 'temps/testInput.html',
+    })
+
+    .state('TestTrend', {
+        url: '/testTrend',
+        templateUrl: 'temps/trendsPage.html',
+        resolve: {
+            itemPromise: ['Places', function(Places){
+                    return Places.getAll();
+            }] 
+        }
     });
 
-	$urlRouterProvider.otherwise('TestWall');
+    $urlRouterProvider.otherwise('TestWall');
 }]);

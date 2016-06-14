@@ -6,13 +6,11 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 
-// require('./models/Comments');
-// require('./models/Customer');
-require('./models/Item');
-// require('./models/Brand');
+require('./models/Tweet');
+require('./models/Place');
+require('./models/Trends');
 
-
-mongoose.connect('mongodb://localhost/theblock');
+mongoose.connect('mongodb://localhost/Twitter');
 
 var app = express();
 

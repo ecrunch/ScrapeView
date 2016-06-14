@@ -49,122 +49,21 @@
         });
 
 
-    });
-
-
-
-
-    $('.toggleFilterMasonry').on('click', function(){
-
-
-
-      $container.masonry('destroy').delay(200);
-
-      angular.element('#filterCall').scope().updateFilter();
-      angular.element('#filterCall').scope().$apply();
-
-
-      $container.imagesLoaded( function(){
-            $container.masonry({
-            // options
-            itemSelector : '.item',
-            columnWidth : 320,
-            isFitWidth: true,
-          });
-
-        $container.masonry('reloadItems');
-
-        
-        $container.masonry('layout');
-
-        // Toggle Bigger Card
-        $container.on( 'click', '.item', function() {
-        // change size of item via class
-          $( this ).removeClass('item');
-          $( this ).addClass('item--gigante');
-
-
-        // trigger layout
-
-          $container.masonry();
-
-        });
-
-        // Close Bigger Card
-        $container.on('click', '.close', function(){
-          
-          $( this ).parent('.item--gigante').addClass('item');
-          $( this ).parent('.item--gigante.item').removeClass('item--gigante');
-
-          $container.masonry();
-
-        });
-      });
-
-    });
-
-    var tn_array = $(".slides img").map(function () {
-        return $(this).attr("src");
-    }).get();
-
-    $('#MainImage').attr('src', tn_array[0]);
-    $('#Previous').css("visibility", "hidden");
-
-    var lengthImages = tn_array.length; // Length of the image list
-    var CurrImage = 000000; // Keep current Image index
-    var widthImg = 100; // Width of a image itemn the list 
-    var BottomLength = 4; // How many images currently shows in the bottom slide
-    var IndexDiff;  //This variable is used in the bottom slider click event 
-            //as a reference for animate the slider
-
-    // Slider and Main Image JQuery Toggle
-    $('.slides li img').click(function () {
-      var Imagesrc = $(this).attr('src'); // get the selected image src
-      var ImageIndex = $(this).parent('.slide').index(); // get the selected list item index
-
-
-      $('#MainImage').fadeOut('slow', function () {
-        if (ImageIndex <= lengthImages - BottomLength) {
-                  //whether the bottom slider has come to the end or not.
-                   //Also this will prevent sliding bottom slider to the left.
-               IndexDiff = CurrImage; // Assign Current image index to IndexDiff temporary
-               CurrImage = ImageIndex; // Assign selected image index to current image value
-               IndexDiff = Math.abs(IndexDiff - CurrImage); // get the difference
-               $('#MainImage').attr('src', Imagesrc); // set selected image source as main image
-
-           }
-           else { // if bottom slider has come to end
-               $('#MainImage').attr('src', Imagesrc); // set the image source only.
-                           // No need to update the image index
-           }
-           }).fadeIn(800);
-   });
+    }); 
   
 </script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <div id = "container" ng-controller="MainCtrl">
 	
-  <div ng-repeat="item in selected_items" id = "filterCall">
-    <!-- Card -->
-		<div ng-controller="InnerCtrl" class="item" id='item'>
-      <!-- Close Button -->
-      <button class="close">Close</button>
-      <!-- Main Image -->
-      <img id="MainImage" ng-src="{{mainImage}}" />
-      <!-- Side Description -->      
-		  <p class="imgName">{{item.name}}</p>
-		  <p class="imgDescription">{{item.description}}</p>
-      <!-- Bottom Slider -->
-      <div id="slider">
-        <ul class="slides">
-          <li ng-repeat="images in item.images" id='innerFilterCall'>
-            <a href="" ng-click="changeImage(images,$index)">
-              <img ng-src="{{images}}" />
-            </a>
-          </li>
-        </ul>
-      </div>
+  <div ng-repeat="tweet in selected_items" id = "filterCall">
+      <!-- Side Description -->   
+      <div class = "item" id="item">
+        <p>{{tweet.user.user}}</p>
+        <p>{{tweet.text}}</p>
+        <p>{{tweet.created_at}}</p>
+        <p>{{tweet.location}}</p>
 
+      </div>   
 		</div>
 	</div>
 </div>

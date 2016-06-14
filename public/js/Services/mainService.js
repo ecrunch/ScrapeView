@@ -1,24 +1,15 @@
 var app = angular.module('mainService', []);
 
-app.factory('Main', ['$http', function ($http){
+app.factory('Tweets', ['$http', function ($http){
 	var m = {
-		items:[]
+		tweets:[]
 	};
 
 	m.getAll = function() {
 		console.log('here');
-		return $http.get('/items').success(function(data){
-			angular.copy(data, m.items);
-		});
-	};
-
-
-	m.create = function(item) {
-		console.log(item);
-		return $http.post('/items', item)
-		.success(function(data){
-			console.log(data);
-			m.items.push(data);
+		return $http.get('/tweets').success(function(data){
+			console.log(data)
+			angular.copy(data, m.tweets);
 		});
 	};
 
@@ -26,3 +17,4 @@ app.factory('Main', ['$http', function ($http){
 	return m;
 
 }]);
+
