@@ -17,7 +17,6 @@
           $( this ).removeClass('item');
           $( this ).addClass('item--gigante');
 
-
         // trigger layout
 
           $container.masonry();
@@ -53,15 +52,24 @@
   
 </script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<div id = "container" ng-controller="MainCtrl">
+<div id = "container" ng-controller="PlacesCtrl">
 	
-  <div ng-repeat="tweet in selected_items" id = "filterCall">
+  <div ng-repeat="place in places| orderBy:'lastModified'" id = "filterCall">
       <!-- Side Description -->   
       <div class = "item" id="item">
-        <p>{{tweet.user.user}}</p>
-        <p>{{tweet.text}}</p>
-        <p>{{tweet.created_at}}</p>
-        <p>{{tweet.location}}</p>
+        
+        <button class="close">Close</button>
+        <p>{{place.name}}</p>
+        <p class="imgDescription">{{place.country}}</p>
+        <ul class="trendsList">
+          <li ng-repeat="trend in place.trends| limitTo: 10">
+            <p>{{trend.name}}</p>
+          </li>
+        </ul>
+        <button ng-click="refreshTrends(place.woeid)">Refresh</button>
+        <p>{{place.placeType}}</p>
+
+        <button ng-click="getPlaceTrends(place.woeid, place._id)">Search {{place.name}}</button>
 
       </div>   
 		</div>

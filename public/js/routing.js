@@ -6,9 +6,9 @@ app.config([
 function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
-    .state('TestWall', {
-        url: '/testWall',
-        templateUrl: 'temps/testWall.html',
+    .state('TweetsWall', {
+        url: '/tweetsWall',
+        templateUrl: 'temps/tweetsWall.html',
         resolve: {
                 itemPromise: ['Tweets', function(Tweets){
                         return Tweets.getAll();
@@ -16,14 +16,14 @@ function($stateProvider, $urlRouterProvider) {
             }
     })
 
-    .state('TestUrl', {
-        url: '/testInput',
-        templateUrl: 'temps/testInput.html',
+    .state('TweetSearch', {
+        url: '/tweetSearch',
+        templateUrl: 'temps/tweetSearch.html',
     })
 
-    .state('TestTrend', {
-        url: '/testTrend',
-        templateUrl: 'temps/trendsPage.html',
+    .state('Places', {
+        url: '/places',
+        templateUrl: 'temps/placesPage.html',
         resolve: {
             itemPromise: ['Places', function(Places){
                     return Places.getAll();

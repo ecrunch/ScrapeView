@@ -31,27 +31,27 @@
 		<script src="/js/routing.js"></script>
 		
 		<!-- Controllers -->
-		<script src="/js/Controllers/MainCtrl.js"></script>
+		<script src="/js/Controllers/TweetsCtrl.js"></script>
+		<script src="/js/Controllers/PlacesCtrl.js"></script>
 
 		<!-- Services -->
-
-		<script src="/js/Services/mainService.js"></script>
+		<script src="/js/Services/tweetService.js"></script>
 		<script src="/js/Services/placeService.js"></script>
 
 		<!-- Routing -->
 
 	</head>
-	<body ng-controller="MainCtrl">
+	<body>
 		<header id="cssmenu">
 			<ul>
 				<li>
-					<a class="toggleMasonry filter" ng-click="(brandFilter = {brand: ''}); (apparelFilter = {shopType: ''});" href="/#/testWall">theBlock</a>
+					<a href="/#/tweetsWall">theBlock</a>
 				</li>
 				<li>
-					<a href="/#/testInput">Search</a>
+					<a href="/#/tweetSearch">Search</a>
 				</li>
 				<li>
-					<a href="/#/testTrend">Trends</a>
+					<a href="/#/places">Trends</a>
 				</li>
 			</ul>		
 		</header>	

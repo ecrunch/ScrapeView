@@ -1,6 +1,7 @@
 var app = angular.module('theBlock',
 	[
-		'MainCtrl',
+		'TweetsCtrl',
+		'PlacesCtrl',
 		'mainService',
 		'placeService',
 		'ui.router',

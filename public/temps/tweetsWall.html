@@ -53,24 +53,15 @@
   
 </script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<div id = "container" ng-controller="MainCtrl">
+<div id = "container" ng-controller="TweetsCtrl">
 	
-  <div ng-repeat="place in places| orderBy:'lastModified'" id = "filterCall">
+  <div ng-repeat="tweet in tweets" id = "filterCall">
       <!-- Side Description -->   
       <div class = "item" id="item">
-        
-        <button class="close">Close</button>
-        <p>{{place.name}}</p>
-        <p class="imgDescription">{{place.country}}</p>
-        <ul class="trendsList">
-          <li ng-repeat="trend in place.trends| limitTo: 10">
-            <p>{{trend.name}}</p>
-          </li>
-        </ul>
-        <button ng-click="refreshTrends(place.woeid)">Refresh</button>
-        <p>{{place.placeType}}</p>
-
-        <button ng-click="getPlaceTrends(place.woeid, place._id)">Search {{place.name}}</button>
+        <p>{{tweet.user.user}}</p>
+        <p>{{tweet.text}}</p>
+        <p>{{tweet.created_at}}</p>
+        <p>{{tweet.location}}</p>
 
       </div>   
 		</div>
