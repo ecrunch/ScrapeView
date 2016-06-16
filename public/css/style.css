@@ -172,12 +172,6 @@
   z-index: 0;
 }
 
-.item > #MainImage {
-  width: 280px;
-  margin: 10px;
-
-}
-
 .item--gigante {
   width: 940px;
   height: 460px;

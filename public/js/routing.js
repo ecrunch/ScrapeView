@@ -31,5 +31,5 @@ function($stateProvider, $urlRouterProvider) {
         }
     });
 
-    $urlRouterProvider.otherwise('TestWall');
+    $urlRouterProvider.otherwise('TweetsWall');
 }]);
