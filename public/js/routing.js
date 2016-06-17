@@ -12,6 +12,8 @@ function($stateProvider, $urlRouterProvider) {
         resolve: {
                 itemPromise: ['Tweets', function(Tweets){
                         return Tweets.getAll();
+                itemPromise2: ['RedditPosts', function(RedditPosts){
+                        return RedditPosts.getAll();
                 }]
             }
     })

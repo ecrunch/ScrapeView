@@ -7,8 +7,7 @@ app.factory('Places', ['$http', function ($http){
 
 	p.getAll = function() {
 		return $http.get('/places').success(function(data){
-			console.log(data)
-			angular.copy(data, c.places);
+			angular.copy(data, p.places);
 		});
 	};
 
