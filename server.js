@@ -9,7 +9,7 @@ var passport = require('passport');
 require('./models/Tweet');
 require('./models/Place');
 require('./models/Trends');
-require('./models/RedditPost');
+require('./models/RedditPosts');
 
 mongoose.connect('mongodb://localhost/Twitter');
 

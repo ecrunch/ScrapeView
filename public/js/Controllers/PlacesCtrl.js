@@ -1,10 +1,11 @@
 var app = angular.module('PlacesCtrl', []);
 
 app.controller('PlacesCtrl', [
-'$scope','Places' ,'$http', 
+'$scope', 'Places', '$http', 
 function($scope, Places, $http){
 
 	$scope.places = Places.places;
+	$scope.redditPosts = RedditPosts.redditPosts;
 
 	$scope.refreshTrends = function(woeid){
 		thisTrends = Places.get(woeid)

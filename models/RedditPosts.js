@@ -10,4 +10,4 @@ var RedditPostSchema = new mongoose.Schema({
 
 });
 
-mongoose.model('RedditPost', RedditPostSchema, 'reddit');
+mongoose.model('RedditPosts', RedditPostSchema, 'reddit');

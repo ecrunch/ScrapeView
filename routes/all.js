@@ -7,13 +7,13 @@ var config = {
 	Tweet: 		mongoose.model('Tweet'),
 	Place: 		mongoose.model('Place'),
 	Trends:     mongoose.model('Trends'),
-	RedditPost: mongoose.model('RedditPost'),
+	RedditPosts: mongoose.model('RedditPosts')
 };
 
 require('./index.js')(config);
 require('./tweets.js')(config);
 require('./places.js')(config);
 require('./trends.js')(config);
-require('./redditPost.js')(config);
+require('./redditPosts.js')(config);
 
 module.exports = router;

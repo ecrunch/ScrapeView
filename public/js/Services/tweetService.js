@@ -1,4 +1,4 @@
-var app = angular.module('mainService', []);
+var app = angular.module('tweetService', []);
 
 app.factory('Tweets', ['$http', function ($http){
 	var m = {

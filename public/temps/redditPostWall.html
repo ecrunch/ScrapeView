@@ -53,14 +53,14 @@
   
 </script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<div id = "container" ng-controller="TweetsCtrl">
-    <div ng-repeat="tweet in tweets" id = "filterCall">
+<div id = "container" ng-controller="RedditPostCtrl">
+    <div ng-repeat="post in redditPosts" id = "filterCall">
         <!-- Side Description -->   
         <div class = "item" id="item">
-          <p>{{tweet.user.user}}</p>
-          <p>{{tweet.text}}</p>
-          <p>{{tweet.created_at}}</p>
-          <p>{{tweet.location}}</p>
+          <a >{{post.title}}</a>
+          <p>{{post.author}}</p>
+          <p>{{post.created_utc}}</p>
+          <p>{{post.subreddit}}</p>
 
         </div>   
   		</div>

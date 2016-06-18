@@ -11,13 +11,19 @@ function($stateProvider, $urlRouterProvider) {
         templateUrl: 'temps/tweetsWall.html',
         resolve: {
                 itemPromise: ['Tweets', function(Tweets){
-                        return Tweets.getAll();
-                itemPromise2: ['RedditPosts', function(RedditPosts){
-                        return RedditPosts.getAll();
+                    return Tweets.getAll();
                 }]
             }
     })
-
+    .state('redditPostsWall', {
+        url: '/redditPostWall',
+        templateUrl: 'temps/redditPostWall.html',
+        resolve: {
+            itemPromise: ['RedditPosts', function(RedditPosts){
+                return RedditPosts.getAll();
+            }]
+        }
+    })
     .state('TweetSearch', {
         url: '/tweetSearch',
         templateUrl: 'temps/tweetSearch.html',

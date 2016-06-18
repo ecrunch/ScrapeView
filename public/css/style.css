@@ -164,6 +164,11 @@
   float: none;
 }
 
+
+.tweetContainer{
+  width: 640px;
+}
+
 .item {
   background-color:#E6E6E6;
   width: 300px;

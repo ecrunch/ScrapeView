@@ -1,4 +1,4 @@
-var app = angular.module('redditPostsService', []);
+var app = angular.module('redditPostService', []);
 
 app.factory('RedditPosts', ['$http', function ($http){
 	var r = {
@@ -8,7 +8,6 @@ app.factory('RedditPosts', ['$http', function ($http){
 	r.getAll = function() {
 		return $http.get('/redditPosts').success(function(data){
 			angular.copy(data, r.redditPosts);
-			console.log(data)
 		});
 	};
 	

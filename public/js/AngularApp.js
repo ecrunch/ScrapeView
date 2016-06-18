@@ -2,8 +2,10 @@ var app = angular.module('theBlock',
 	[
 		'TweetsCtrl',
 		'PlacesCtrl',
-		'mainService',
+		'RedditPostCtrl',
 		'placeService',
+		'redditPostService',
+		'tweetService',
 		'ui.router',
 		'theBlockRouting'
 
