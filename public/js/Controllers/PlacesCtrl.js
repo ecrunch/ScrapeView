@@ -5,7 +5,6 @@ app.controller('PlacesCtrl', [
 function($scope, Places, $http){
 
 	$scope.places = Places.places;
-	$scope.redditPosts = RedditPosts.redditPosts;
 
 	$scope.refreshTrends = function(woeid){
 		thisTrends = Places.get(woeid)
@@ -14,7 +13,7 @@ function($scope, Places, $http){
 	$scope.getPlaceTrends = function(woeid,id){
 		if(woeid === '') { return; }
 
-		Surl =	'http://127.0.0.1:5000/getPlaceTrends/' + woeid + '/' + id
+		Surl =	'http://127.0.0.1:5000/getPlaceTrends/' + woeid
 		$http.get(Surl)
 	};
 }]);

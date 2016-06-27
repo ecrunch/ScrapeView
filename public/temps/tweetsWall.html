@@ -57,8 +57,10 @@
     <div ng-repeat="tweet in tweets" id = "filterCall">
         <!-- Side Description -->   
         <div class = "item" id="item">
+          <button class="close">Close</button>
           <p>{{tweet.user.user}}</p>
           <p>{{tweet.text}}</p>
+          <a href ="{{tweet.entites.urls[0]}}" ng-show="links({{tweet.entites.urls}})">Link</a>
           <p>{{tweet.created_at}}</p>
           <p>{{tweet.location}}</p>
 

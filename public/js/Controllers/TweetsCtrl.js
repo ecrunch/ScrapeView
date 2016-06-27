@@ -6,6 +6,14 @@ function($scope, Tweets, $http){
 
 	$scope.tweets = Tweets.tweets;
 
+	$scope.links = function(link){
+		console.log(link)
+			// if link.length == 1:
+			// 	return true
+			// else
+			// 	return false
+	}
+
 	$scope.searchTwitterItem = function(){
 		if($scope.searchItem === '') { return; }
 
