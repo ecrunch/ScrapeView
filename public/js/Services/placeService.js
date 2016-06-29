@@ -13,6 +13,7 @@ app.factory('Places', ['$http', function ($http){
 
 	p.get = function(woeid) {
 		return $http.get('/places/'+ woeid).then(function(res){
+            console.log("in service")
             return res.data;
 		});
 

@@ -59,7 +59,7 @@
       <div class = "item" id="item">
         
         <button class="close">Close</button>
-        <p>{{place.name}}</p>
+        <a href="#/placeTrends/{{place.woeid}}" ng-click="getPlaceTrends(place.woeid, place._id)">{{place.name}}</a>
         <p class="imgDescription">{{place.country}}</p>
         <ul class="trendsList">
           <li ng-repeat="trend in place.trends| limitTo: 10">

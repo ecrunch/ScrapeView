@@ -1,0 +1,8 @@
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<div ng-controller="PlacesCtrl">
+	<h1>{{placeTrends.name}}</h1>
+	<div ng-repeat="trend in placeTrends.trends">
+		<span>{{trend.name}}</span>
+		<button ng-click="searchTwitterItem(trend.name)">Search</button>
+	</div>
+</div>

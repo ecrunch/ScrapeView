@@ -11,4 +11,15 @@ router.get('/places', function (req, res, next) {
 	});
 });
 
+router.get('/places/:id', function(req, res, id) {
+	console.log("in route bitch")
+	console.log(req.params.id)
+
+	Place.findOne({woeid: req.params.id }, function(err, placeTrends){
+		res.json(placeTrends);
+		console.log(placeTrends)
+	});
+});
+
+
 };

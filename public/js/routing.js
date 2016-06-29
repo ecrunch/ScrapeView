@@ -15,6 +15,7 @@ function($stateProvider, $urlRouterProvider) {
                 }]
             }
     })
+
     .state('redditPostsWall', {
         url: '/redditPostWall',
         templateUrl: 'temps/redditPostWall.html',
@@ -24,6 +25,7 @@ function($stateProvider, $urlRouterProvider) {
             }]
         }
     })
+
     .state('TweetSearch', {
         url: '/tweetSearch',
         templateUrl: 'temps/tweetSearch.html',
@@ -32,12 +34,25 @@ function($stateProvider, $urlRouterProvider) {
     .state('Places', {
         url: '/places',
         templateUrl: 'temps/placesPage.html',
+        controller: 'PlacesCtrl',
         resolve: {
             itemPromise: ['Places', function(Places){
                     return Places.getAll();
             }] 
         }
+    })
+
+    .state('PlaceTrends', {
+        url: '/placeTrends/{woeid}',
+        templateUrl: 'temps/placeTrendsPage.html',
+        controller: 'PlaceTrendsCtrl',
+        resolve: { 
+            placeTrends: ['$stateParams','Places', function($stateParams ,Places){
+                    
+                    return Places.get($stateParams.woeid);
+            }] 
+        }
     });
 
-    $urlRouterProvider.otherwise('TweetsWall');
+    $urlRouterProvider.otherwise('tweetsWall');
 }]);
